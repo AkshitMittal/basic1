@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>jQuery get textbox value example</title>
+ 
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+
+<h2>Get N-th Fibonacci : <label id="msg"></label></h2>
+
+<div style="padding:16px;">
+	TextBox : <input type="text" placeholder="Type an integer N"></input>
+</div>
+	
+<button id="Get">Get TextBox Value</button> 
+
+<script type="text/javascript">
+
+$(document).ready(function(){  
+    $("#Get").click(function () {
+
+    	var n=$("input:text").val();
+	 //   alert($("input:text").val());
+	   $('#msg').html(n);
+      //alert($.get("http://localhost:5000/?n=3"));
+
+       $.get("http://localhost:5000/",{n:n},function(data,status,xhr){
+       	     alert("hi");
+       	     alert(status);
+             alert("Data: " + data);
+        });
+       
+       	 
+        
+
+    });
+	
+});	
+</script>
+
+</body>
+</html>
